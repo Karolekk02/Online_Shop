@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta charset="UTF-8">
+        <title><%= title %></title>
+        <link rel="stylesheet" href="Create_account.css">
+        <nav>
+            <ul>
+                <li><a href="/"><img src="https://cdn0.iconfinder.com/data/icons/set-app-incredibles/24/Home-01-512.png" alt="HomePage"></a></li>
+                <li><a href="/account"><img src="https://cdn.iconscout.com/icon/free/png-256/free-account-269-866236.png" alt="Account"></a></li>
+                <% if(user.role == "admin") {%>
+                <li><a href="/users">Users</a></li>
+                <li><a href="/assortment">Assortment</a></li>
+                <li><a href="/orders">Orders</a></li>
+                <% } %>
+                <li><a href="/cart"><img src="https://static-00.iconduck.com/assets.00/shopping-cart-icon-512x462-yrde1eu0.png" alt="Cart"></a></li>
+                <% if(logged == true) {%>
+                    <li><a href="/login"><img src="https://cdn2.iconfinder.com/data/icons/social-productivity-line-art-1/128/logout-512.png" alt="Logout"></a></li>
+                <% } else { %>
+                    <li><a href="/login">Sign in</a></li>
+                <%} %> 
+            </ul>
+        </nav>
+    </header>
+    <body>
+        <main>
+            <h1>Type your data</h1>
+            <script>
+            </script>
+            <form action = "" method = "post">
+                <input type="text" placeholder="City" name = "city">
+                <input type="text" placeholder="Street" name = "street">
+                <input type="text" placeholder="House number" name = "number">
+                <button type="submit">Place an order</button>
+            </form>
+            <% if (typeof error !== 'undefined') { %>
+                <p class="error"><%= error %></p>
+            <% } %>
+        </main>
+        <footer>
+            <p>@Copyright by Karol Burczyk</p>
+        </footer>
+    </body>
+</html>
